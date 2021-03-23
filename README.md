@@ -1,2 +1,2 @@
 # typescript-experiments
-collection of typescript programs
+collection of typescript experiments
