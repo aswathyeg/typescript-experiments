@@ -3,12 +3,8 @@ type Todo={
     name:string,
     place:string
 }
-function address1(todose:Todo[]){
-    return{
-    id:1,
-    name:"jay",
-    place:"fi"
-}
+function address1(todose:Todo){
+    console.log(todose.name)
 
 }
-console.log (address1.name)
+address1({id:1,name:"s",place:"hio"});

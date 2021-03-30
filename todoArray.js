@@ -1,7 +1,4 @@
 function address1(todose) {
-    return {
-        id: 1,
-        name: "jay",
-        place: "fi"
-    };
+    console.log(todose.name);
 }
+address1({ id: 1, name: "s", place: "hio" });
