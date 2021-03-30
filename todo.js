@@ -1,7 +1,4 @@
 function address(details) {
-    return {
-        id: 1,
-        name: "sindhu",
-        phone: 1222
-    };
+    console.log(details.id);
 }
+address({ id: 1, name: "s", phone: 12 });
