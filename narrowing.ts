@@ -6,4 +6,4 @@ function printId1(id:number|string){
         console.log(id+" is string")
     }
 }
-printId(1);
+printId1(1);

@@ -1,4 +1,4 @@
-function fn(x:number|string){
+function fn1(x:number|string){
     if(typeof x==="number"){
 console.log("number")
     }
@@ -9,4 +9,4 @@ else{
     console.log("any")
 }
 }
-fn(1);
+fn1(1);
