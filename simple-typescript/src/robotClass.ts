@@ -1,4 +1,5 @@
 class Robot{
+  
      name:string;
      constructor (name:string){
          this.name=name;
@@ -11,6 +12,7 @@ class Robot{
           console.log(`${this.name} moved ${distance} meters`)
          
      }
+     
 }
 
 class FlyingRobot extends Robot{
