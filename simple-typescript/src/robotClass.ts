@@ -8,6 +8,7 @@ class Robot{
 
      }
       move(distance:number) {
+          console.log(`${this.name} moved ${distance} meters`)
          
      }
 }
