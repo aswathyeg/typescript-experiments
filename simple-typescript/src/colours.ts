@@ -1,5 +1,8 @@
 class Colours{
-_color:string="blue";
+_color?: string;
+constructor (protected name:string){
+   
+}
 static availableColors=["red","green"]
 static isAvailable(color:string){
    return Colours.availableColors.includes(color);
