@@ -1,5 +1,5 @@
   
-interface IOrder{
+export default interface IOrder{
     calculateTotal():number;
 
 }
