@@ -3,7 +3,7 @@
  } 
   
    export function acceleration(calculation:Icalculation) {
-      const time=0;
+      const time=10;
       let finalVelocity =calculation.velocity();
       const acceleration=finalVelocity/time;
     return acceleration;
