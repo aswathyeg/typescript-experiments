@@ -15,20 +15,27 @@ class Cat implements Animal{
 }
 class Dog implements Animal{
     name:string;
-    group:string|undefined;
+    group:string|undefined; // no need to initialise
 
     constructor (name:string){
         this.name=name;
     }
     setGroup(group:string){
-        this.group=group
+        this.group=group;
+    }
+    bark(){
+
     }
 }
-interface AnimalConstructor{
-    new (name:string):Animal // constructor signature
+interface AnimalConstructor<T>{
+    new (name:string):T // constructor signature
 }
 
-function initializeAnimal(Animal:AnimalConstructor,name:string) {
+function initializeAnimal<T extends Animal>(Animal:AnimalConstructor<T>,name:string) {
     const animal=new Animal(name);
-    
+    animal.setGroup('mammals');
+    return animal;
 }
+const cat=initializeAnimal(Cat,'Elsa');//instance side.no need of new keyword
+const dog=initializeAnimal(Dog,'jimmy');
+dog.bark();
