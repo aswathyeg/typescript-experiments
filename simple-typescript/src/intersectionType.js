@@ -9,11 +9,12 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-function x(obj) {
-    return obj.a + obj.b + obj.c;
-}
-function combine(objA, objB) {
-    return __assign(__assign({}, objA), objB);
+// function x(obj: IA & IB & IC) {
+//     return obj.a + obj.b + obj.c;
+// }
+function combine(objD, objB) {
+    //type of objects .return type to avoid logic error
+    return __assign(__assign({}, objD), objB);
 }
 var objA = { a: 1 };
 var objB = { b: 2 };
