@@ -11,7 +11,7 @@ interface IC {
 //     return obj.a + obj.b + obj.c;
 
 // }
-function combine<ObjC, ObjB>(objD: ObjC, objB: ObjB): ObjC & ObjB {//ObjA & ObjB are parameters to describe 
+function combine<ObjC, ObjB>(objD: ObjC, objB: ObjB): ObjC & ObjB {//ObjC & ObjB are parameters to describe 
     //type of objects .return type to avoid logic error
     return { ...objD, ...objB }
 
