@@ -6,5 +6,5 @@ interface Starship{
 const updateStarship=(id:number,starship:Starship)=>{
 
 }
-updateStarship({1,'ShipAnna'});
+updateStarship(1,{'ShipAnna'});
 
