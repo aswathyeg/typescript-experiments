@@ -1,4 +1,5 @@
 
+
 interface IA {
     a: number;
 }
