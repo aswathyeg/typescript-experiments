@@ -13,5 +13,13 @@ updateStarship(1,{
 
     type pickingProps=Pick<Starship,'name'>;//Pick eg
 
+    type AvailableDrinks="Tea"|"cofee"|"lemonade"|"orange juice";
+    let johnDrinks:AvailableDrinks;
+    johnDrinks="Tea";
+    
+    type DrinksJaneLikes= "cofee"|"lemonade"|"orange juice";
+    let janeDrinks:Exclude<AvailableDrinks,DrinksJaneLikes>//Exclude eg
+    janeDrinks="Tea";
+
     
 
