@@ -21,5 +21,17 @@ updateStarship(1,{
     let janeDrinks:Exclude<AvailableDrinks,DrinksJaneLikes>//Exclude eg
     janeDrinks="Tea";
 
+    interface PaintStarship{
+        color:"red"|"blue"|"green"|"violet"
+        }
+        function paintShip(
+            id:number,
+            color:NonNullable<PaintStarship['color']>)//set nullchecks to true in tsconfig
+            {
+
+        }
+        paintShip(1,"green");
+
+
     
 
