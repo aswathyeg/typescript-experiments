@@ -32,6 +32,30 @@ updateStarship(1,{
         }
         paintShip(1,"green");
 
+        interface MyObject{
+            sayHello():void;
+
+        }
+        interface MyObjectThis{
+            sayHellowThis(): string;
+            
+        }
+        const myObject:MyObject & ThisType<MyObjectThis>={//thistype eg
+            sayHello(){
+                return this.sayHellowThis();
+
+                
+            }
+        }
+        myObject.sayHello=myObject.sayHello.bind({
+            sayHellowThis(){
+               return "hello"
+            }
+
+        })
+console.log( myObject.sayHello)
+
+
 
     
 
