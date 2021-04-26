@@ -57,7 +57,7 @@ myObject.sayHello = myObject.sayHello.bind({
 //console.log(myObject.sayHello)
 type Properties='PropA'|'PropB'
 
-type MapperType={
+type MappedType={
     [P in Properties]:boolean;
 }
 
