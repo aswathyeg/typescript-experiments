@@ -24,3 +24,4 @@ getProps():P{
   return this.props
 }
 }
+//can't use generic type to static method or properties
