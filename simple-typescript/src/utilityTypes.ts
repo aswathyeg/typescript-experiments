@@ -57,9 +57,10 @@ myObject.sayHello = myObject.sayHello.bind({
 //console.log(myObject.sayHello)
 type Properties='PropA'|'PropB'
 
-type MappedType={
-    [P in Properties]:boolean;
+type MappedType<T>={
+    [P in keyof T]:T[P]|null;
 }
+type MyNewtype=MappedType <{a:'a',b:'b'}>;
 
 
 
