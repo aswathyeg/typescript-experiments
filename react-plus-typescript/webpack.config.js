@@ -1,5 +1,5 @@
 const htmlWebpackPlugin=require('html-webpack-plugin')
-const { Module } = require('webpack')
+const { Module } = require('html-webpack-plugin')
 Module.exports={
     plugins:[
         new htmlWebpackPlugin({
