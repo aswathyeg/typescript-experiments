@@ -1,1 +1,1 @@
-alert("Hello world !");
+(()=>{"use strict";console.log("Hello World"),console.log((new function e(){var n,o;!function(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}(this,e),o="Hello World",(n="greeting")in this?Object.defineProperty(this,n,{value:o,enumerable:!0,configurable:!0,writable:!0}):this[n]=o}).greeting)})();
