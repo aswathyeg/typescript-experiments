@@ -8,4 +8,4 @@ export function log(str: string) {
     greeting = 'Hello World';
   }
   
-  console.log(1);
+  console.log(new A().greeting);
