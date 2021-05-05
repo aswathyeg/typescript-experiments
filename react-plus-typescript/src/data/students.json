@@ -1,0 +1,28 @@
+[{
+    "id":1,
+    "name":"Adam",
+    "class":1,
+    "phone":786565
+
+},
+{
+    "id":2,
+    "name":"Neena",
+    "class":1,
+    "phone":78690
+
+},
+{
+    "id":3,
+    "name":"Marry",
+    "class":1,
+    "phone":2334
+
+},
+{
+    "id":4,
+    "name":"John",
+    "class":1,
+    "phone":899809
+
+}]
