@@ -2,7 +2,7 @@ import React from 'react'
 import Student from './student';
 import students from '../data/students.json';
 import AppCSS from './App.module.css';
-import StudentSVG from '../svg/student.svg';
+//import StudentSVG from '../svg/student.svg';
 
 const App=()=>{ //function component
     return (
