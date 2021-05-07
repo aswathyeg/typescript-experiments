@@ -3,7 +3,3 @@ declare module'.*css'{
     export default css;
 }
 
-declare module '.*svg'{
-    const ReactComponent:React.ComponentType<React.SVGAttributes<SVGAElement>>;
-    export default ReactComponent;
-}
