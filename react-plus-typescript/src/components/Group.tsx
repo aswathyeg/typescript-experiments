@@ -7,12 +7,12 @@ interface State{//decides show or hide cart
     isOpen:boolean;
 }
 
-class Group extends React.Component{
+class Group extends React.Component<Props, State>{
 
     constructor(props:Props){
 super(props);
 this.state={
-    isOpen:false
+    isOpen:false,
 };
 
     }
@@ -21,8 +21,20 @@ this.state={
         return(
         
         <div className={GroupCSS.groupContainer}>
-<button className={GroupCSS.button} type="button" >2 student(s)</button>
-<div className={GroupCSS.groupDropdown}>
+<button className={GroupCSS.button}
+ type="button"
+ onClick={()=>{
+ this.setState((prevState)=>({ isOpen: !prevState.isOpen}));
+}} 
+>2 student(s)</button>
+<div
+ className={GroupCSS.groupDropDown} 
+ style={{
+ display:this.state.isOpen ? 'block':'none',
+}}
+>
+    
+
 <ul>
     <li>Adam</li>
     <li>Neena</li>
