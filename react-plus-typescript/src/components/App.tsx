@@ -9,7 +9,7 @@ const App=()=>{ //function component
     return (
         <div className={AppCSS.container}>
             <div className={AppCSS.header}>
-<div className={AppCSS.setTitle}>Students</div>
+<div className={AppCSS.siteTitle}>Students</div>
 <Group />
             </div>
     <ul>
