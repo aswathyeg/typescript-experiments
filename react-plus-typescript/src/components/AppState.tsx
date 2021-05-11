@@ -1,4 +1,5 @@
 import React,{createContext}from 'react';
+import { useState } from 'react';
 
 interface AppStateValue{
 group:{
@@ -14,7 +15,13 @@ const defaultStateValue : AppStateValue={
 
 
 export const AppStateContext=createContext(defaultStateValue);
-const AppStateProvider:React.FC=()=>{//fun component.to wrap component tree
+const AppStateProvider:React.FC=({children})=>{//function component.to wrap component tree
 
+    const [state,setState]= useState(defaultStateValue);//usestate hook(to store the value of context)
+return (
+    <AppStateContext.Provider value={state}>
+    {children}
+    </AppStateContext.Provider>
+);
 
-}
+};
