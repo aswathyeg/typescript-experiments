@@ -1,5 +1,6 @@
 import React from 'react';
 import GroupCSS from './Group.module.css';
+import { AppStateContext } from './AppState';
 interface Props{
 
 }
@@ -19,7 +20,9 @@ this.state={ //initialising state
     
     render(){
         return(
-        
+            <AppStateContext.Consumer>
+            {(state) => {
+         return (
         <div className={GroupCSS.groupContainer}>
 <button className={GroupCSS.button}
  type="button"
@@ -34,14 +37,22 @@ this.state={ //initialising state
 }}
 >
     
-
 <ul>
-    <li>Adam</li>
-    <li>Neena</li>
-</ul>
+                  {state.group.students.map((student) => {
+                    return (
+                      <li key={student.id}>
+                        {student.name} &times; {student.name}
+                      </li>
+                    );
+                  })}
+                </ul>
     
 </div>
-        </div>);
+        </div>
+        );
+    }}
+         </AppStateContext.Consumer>
+        );
     }
 }
 export default Group;
