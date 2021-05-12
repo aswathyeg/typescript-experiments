@@ -1,4 +1,4 @@
-import React,{createContext}from 'react';
+import React,{createContext, useContext}from 'react';
 import { useState } from 'react';
 
 interface AppStateValue{
@@ -18,6 +18,10 @@ export const AppStateContext=createContext(defaultStateValue);
 
 export const AppSetStateContext=createContext<React.Dispatch<React.SetStateAction<AppStateValue>> |undefined>(undefined);//for setState
 
+export const useSetState=()=>{
+    const setState=useContext(AppStateContext);
+    return setState;
+}
 
 const AppStateProvider:React.FC=({children})=>{//function component.to wrap component tree
 
