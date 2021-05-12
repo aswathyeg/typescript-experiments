@@ -15,12 +15,18 @@ const defaultStateValue : AppStateValue={
 
 
 export const AppStateContext=createContext(defaultStateValue);
+
+export const AppSetStateContext=createContext<React.Dispatch<React.SetStateAction<AppStateValue>> |undefined>(undefined);//for setState
+
+
 const AppStateProvider:React.FC=({children})=>{//function component.to wrap component tree
 
     const [state,setState]= useState(defaultStateValue);//usestate hook(to store the value of context)
+    
 return (
     <AppStateContext.Provider value={state}>
-    {children}
+        <AppSetStateContext.Provider value={setState}>{children}</AppSetStateContext.Provider>
+    
     </AppStateContext.Provider>
 );
 
