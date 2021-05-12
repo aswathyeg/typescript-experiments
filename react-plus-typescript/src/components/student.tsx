@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import StudentCSS from './student.module.css';
 import {AppSetStateContext} from './AppState';
-
+import {useSetState} from './AppState'
 interface Student{
 id:number,
 name:string,
@@ -11,7 +11,7 @@ interface Props{
   student : Student;
 }
 const Student:React.FC<Props>=({student})=>{
-  const setState=useContext(AppSetStateContext);
+  const setState=useSetState();
   const onClickAdd=()=>{
     
   }
