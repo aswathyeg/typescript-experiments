@@ -18,8 +18,11 @@ export const AppStateContext=createContext(defaultStateValue);
 
 export const AppSetStateContext=createContext<React.Dispatch<React.SetStateAction<AppStateValue>> |undefined>(undefined);//for setState
 
-export const useSetState=()=>{
+export const useSetState=()=>{//custom Hook
     const setState=useContext(AppStateContext);
+    if(!setState){
+        throw new Error('UseSetState was called outside AppStateContextProvider')
+    }
     return setState;
 }
 
