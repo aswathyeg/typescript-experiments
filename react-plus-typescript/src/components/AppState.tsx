@@ -24,7 +24,7 @@ const defaultStateValue : AppStateValue={
 
 export const AppStateContext=createContext(defaultStateValue);
 
-export const AppSetStateContext = createContext<
+export const AppDispatchContext = createContext<
 React.Dispatch<AddTogroupAction> | undefined
 >(undefined);
 //for setState
@@ -66,12 +66,12 @@ const reduser=(state:AppStateValue,action:AddTogroupAction) =>{
   return state;
 };//set reduser
 
-export const useSetState=()=>{//custom Hook
-    const setState=useContext(AppStateContext);
-    if(!setState){
-        throw new Error('UseSetState was called outside AppStateContextProvider');
+export const useStateDispatch=()=>{//custom Hook
+    const dispatch=useContext( AppDispatchContext);
+    if(!dispatch){
+        throw new Error('useStateDispatch was called outside  AppDispatchContextProvider');
     }
-    return setState;
+    return dispatch;
 }
 
 const AppStateProvider:React.FC=({children})=>{//function component.to wrap component tree
@@ -80,9 +80,9 @@ const AppStateProvider:React.FC=({children})=>{//function component.to wrap comp
     const [state,dispatch]= useReducer(reduser,defaultStateValue);
 return (
     <AppStateContext.Provider value={state}>
-        <AppSetStateContext.Provider value={dispatch}>{children}
+        < AppDispatchContext.Provider value={dispatch}>{children}
         
-        </AppSetStateContext.Provider>
+        </ AppDispatchContext.Provider>
     
     </AppStateContext.Provider>
 );
