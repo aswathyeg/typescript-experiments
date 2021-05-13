@@ -13,14 +13,8 @@ interface Props{
 const Student:React.FC<Props>=({student})=>{
   const setState = useSetState();
   const onClickAdd = ()=>{
-   setState((state)=>{
-    const itemExists = state.group.students.find((student) => student.id === student.id);
-     return{
-       ...state,
-       group:{...state.group,students:
-      [...state.group.students,{id:student.id,name:student.name}]}};//all the state properties that dont want to update
-   });
-  };
+  }
+    
     return (
     <div>
       <li className={StudentCSS.container}>
@@ -32,5 +26,5 @@ const Student:React.FC<Props>=({student})=>{
         </li></div>
     )
 
-};
+    }
 export default Student;
