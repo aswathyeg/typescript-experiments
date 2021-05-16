@@ -10,8 +10,9 @@ const App=()=>{ //function component
     return (
         <AppStateProvider>
         <div className={AppCSS.container}>
+        <div className={AppCSS.header}>
             <LogoSVG width={120} height={120}/>
-            <div className={AppCSS.header}>
+            
                 
 <div className={AppCSS.siteTitle}>Students</div>
 <Group />
