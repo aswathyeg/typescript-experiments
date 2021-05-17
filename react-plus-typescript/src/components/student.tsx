@@ -1,6 +1,6 @@
 import React from 'react';
 import StudentCSS from './student.module.css';
-import {useSetState} from './AppState';
+import {useStateDispatch} from './AppState';
 
 interface Student{
 id:number,
@@ -11,8 +11,14 @@ interface Props{
   student : Student;
 }
 const Student:React.FC<Props>=({student})=>{
-  const setState = useSetState();
+  const dispatch = useStateDispatch();
   const onClickAdd = ()=>{
+    dispatch({
+      type: 'Add_To_Group',
+      payload: {
+        item: { id: student.id, name: student.name ,phone:student.phone},
+      },
+    });
   }
     
     return (
