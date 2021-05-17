@@ -5,18 +5,21 @@ import AppCSS from './App.module.css';
 import Group from './Group';
 //import StudentSVG from '../svg/student.svg';
 import AppStateProvider from './AppState';
-
+import LogoSVG from '../svg/ocal-logo-purple.svg';
 const App=()=>{ //function component
     return (
         <AppStateProvider>
         <div className={AppCSS.container}>
-            <div className={AppCSS.header}>
+        <div className={AppCSS.header}>
+            <LogoSVG width={120} height={120}/>
+            
+                
 <div className={AppCSS.siteTitle}>Students</div>
 <Group />
             </div>
     <ul>
        {students.map((student)=>{
-           return<Student student={student}/>
+           return<Student key={student.id} student={student}/>;
 
        })
 }

@@ -1,11 +1,10 @@
 import React,{createContext, useContext}from 'react';
 import { useReducer } from 'react';
-import { useState } from 'react';
 
 interface StudentDetails {
     id: number;
     name: string;
-    price: number;
+    phone:number;
     quantity: number;
   }
 
@@ -34,12 +33,12 @@ interface Action<T>{
 }
 interface AddTogroupAction extends Action<'Add_To_Group'>{
 payload:{
-item:StudentDetails;
+item:Omit<StudentDetails,'quantity'>
 }
 
 }
 
-const reduser=(state:AppStateValue,action:AddTogroupAction) =>{
+const reducer=(state:AppStateValue,action:AddTogroupAction) =>{
 
     if (action.type==='Add_To_Group'){
 
@@ -49,9 +48,9 @@ const reduser=(state:AppStateValue,action:AddTogroupAction) =>{
     );
     return {
       ...state,
-      cart: {
+      group: {
         ...state.group,
-        items: itemExists
+        students: itemExists
           ? state.group.students.map((item) => {
               if (item.id === itemToAdd.id) {
                 return { ...item, quantity: item.quantity + 1 };
@@ -77,7 +76,7 @@ export const useStateDispatch=()=>{//custom Hook
 const AppStateProvider:React.FC=({children})=>{//function component.to wrap component tree
 
     //const [state,setState]= useState(defaultStateValue);//usestate hook(to store the value of context)
-    const [state,dispatch]= useReducer(reduser,defaultStateValue);
+    const [state,dispatch]= useReducer(reducer,defaultStateValue);
 return (
     <AppStateContext.Provider value={state}>
         < AppDispatchContext.Provider value={dispatch}>{children}
