@@ -1,6 +1,7 @@
 import React from 'react';
 import GroupCSS from './Group.module.css';
 import { AppStateContext } from './AppState';
+
 interface Props{
 
 }
@@ -15,21 +16,33 @@ super(props);
 this.state={ //initialising state
     isOpen:false,
 };
+//this.handleClick=this.handleClick.bind(this);
 
     }
+    handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      // if ((e.target as HTMLElement).nodeName === 'SPAN') {
+      //   (e.target as HTMLSpanElement).;
+      // }
+     // console.log(e.target);
+      this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
+    };
     
     render(){
         return(
             <AppStateContext.Consumer>
             {(state) => {
+               const itemsCount = state.group.students.reduce((sum, item) => {
+                return sum + item.quantity;
+              }, 0);
          return (
         <div className={GroupCSS.groupContainer}>
 <button className={GroupCSS.button}
  type="button"
- onClick={()=>{
- this.setState((prevState)=>({ isOpen: !prevState.isOpen}));
-}} 
->2 student(s)</button>
+ onClick={this.handleClick}
+  
+>
+<span>{itemsCount} student(s)</span>
+  </button>
 <div
  className={GroupCSS.groupDropDown} 
  style={{
@@ -38,10 +51,10 @@ this.state={ //initialising state
 >
     
 <ul>
-                  {state.group.students.map((student) => {
+                  {state.group.students.map((item) => {
                     return (
-                      <li key={student.id}>
-                        {student.name} &times; {student.name}
+                      <li key={item.id}>
+                        {item.name} &times; {item.quantity}
                       </li>
                     );
                   })}
