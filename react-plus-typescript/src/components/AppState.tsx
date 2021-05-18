@@ -34,9 +34,12 @@ interface Action<T>{
 interface AddTogroupAction extends Action<'Add_To_Group'>{
 payload:{
 item:Omit<StudentDetails,'quantity'>
-}
+};
 
 }
+
+interface InitializeGroupAction extends Action<'INITIOLIZE_GROUP'>{ }
+
 
 const reducer=(state:AppStateValue,action:AddTogroupAction) =>{
 
@@ -83,6 +86,14 @@ const AppStateProvider:React.FC=({children})=>{//function component.to wrap comp
 
     },[state.group]
     );//functionality for saving the group
+
+
+    useEffect(()=>{
+      window.localStorage.getItem('cart')
+    });
+
+//functionality for load the group from localstorage
+
 
 return (
     <AppStateContext.Provider value={state}>
