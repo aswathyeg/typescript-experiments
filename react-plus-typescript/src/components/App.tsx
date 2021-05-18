@@ -24,7 +24,8 @@ const App=()=>{ //function component
        })
 }
 
-    </ul></div>
+    </ul>
+    </div>
     </AppStateProvider>
     )
 }
