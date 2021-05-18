@@ -69,7 +69,9 @@ const reducer=(state:AppStateValue,action:AddTogroupAction|InitializeGroupAction
       },
     };
   }
-
+else if(action.type==='INITIOLIZE_GROUP'){
+  return{...state,group:action.payload.group};
+}
   return state;
 };//set reduser
 
