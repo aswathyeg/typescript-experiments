@@ -46,7 +46,7 @@ interface InitializeGroupAction extends Action<'INITIOLIZE_GROUP'>{
 }
 
 
-const reducer=(state:AppStateValue,action:AddTogroupAction) =>{
+const reducer=(state:AppStateValue,action:AddTogroupAction|InitializeGroupAction) =>{
 
     if (action.type==='Add_To_Group'){
 
