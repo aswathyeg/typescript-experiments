@@ -1,4 +1,4 @@
-import React,{createContext, useContext}from 'react';
+import React,{createContext, useContext, useEffect}from 'react';
 import { useReducer } from 'react';
 
 interface StudentDetails {
@@ -77,6 +77,13 @@ const AppStateProvider:React.FC=({children})=>{//function component.to wrap comp
 
     //const [state,setState]= useState(defaultStateValue);//usestate hook(to store the value of context)
     const [state,dispatch]= useReducer(reducer,defaultStateValue);
+
+    useEffect(()=>{
+      window.localStorage.setItem('group',JSON.stringify(state.group));
+
+    },[state.group]
+    );//functionality for saving the group
+
 return (
     <AppStateContext.Provider value={state}>
         < AppDispatchContext.Provider value={dispatch}>{children}
