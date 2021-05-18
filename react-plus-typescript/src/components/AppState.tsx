@@ -38,7 +38,12 @@ item:Omit<StudentDetails,'quantity'>
 
 }
 
-interface InitializeGroupAction extends Action<'INITIOLIZE_GROUP'>{ }
+interface InitializeGroupAction extends Action<'INITIOLIZE_GROUP'>{ 
+
+  payload:{
+    group:AppStateValue['group']
+  }
+}
 
 
 const reducer=(state:AppStateValue,action:AddTogroupAction) =>{
