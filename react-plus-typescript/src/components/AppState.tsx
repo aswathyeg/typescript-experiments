@@ -96,8 +96,15 @@ const AppStateProvider:React.FC=({children})=>{//function component.to wrap comp
 
 
     useEffect(()=>{
-      window.localStorage.getItem('cart')
-    });
+      const group=window.localStorage.getItem('group');
+      if(group){
+dispatch({ type:'INITIOLIZE_GROUP',
+payload:{group:JSON.parse(group)},
+});
+
+      }
+    },[]
+    );
 
 //functionality for load the group from localstorage
 
