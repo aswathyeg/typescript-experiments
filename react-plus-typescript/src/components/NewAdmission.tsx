@@ -1,15 +1,28 @@
 import React from 'react';
 import student from './student';
 import {Student} from '../types';
+import { useStateDispatch } from './AppState';
 
  interface Props{
      student:Student;
  }
-const onClickAdd=()=>{
 
-}
 
 const NewAdmission:React.FC<Props>=({student})=>{
+const dispatch=useStateDispatch();
+const onClickAdd=()=>{
+    dispatch({
+        type:'Add_To_Group',
+        
+        payload:{
+            item:{id:student.id,name:student.name,phone:student.phone},
+        },
+    });   
+
+};
+
+
+
     return(
         <div>
              <h2>{student.name}</h2>
