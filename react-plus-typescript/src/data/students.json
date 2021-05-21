@@ -9,7 +9,8 @@
     "id":2,
     "name":"Neena",
     "class":1,
-    "phone":78690
+    "phone":78690,
+    "newAdmission":true
 
 },
 {

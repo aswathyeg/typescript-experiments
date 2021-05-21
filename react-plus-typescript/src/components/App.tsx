@@ -6,7 +6,11 @@ import Group from './Group';
 //import StudentSVG from '../svg/student.svg';
 import AppStateProvider from './AppState';
 import LogoSVG from '../svg/ocal-logo-purple.svg';
+import NewAdmission from './NewAdmission';
+import student from './student';
 const App=()=>{ //function component
+
+    const newAdmissionStudent=students.find((student)=>student.newAdmission);
     return (
         <AppStateProvider>
         <div className={AppCSS.container}>
@@ -17,6 +21,8 @@ const App=()=>{ //function component
 <div className={AppCSS.siteTitle}>Students</div>
 <Group />
             </div>
+
+         { newAdmissionStudent &&<NewAdmission student={newAdmissionStudent } />}
     <ul>
        {students.map((student)=>{
            return<Student key={student.id} student={student}/>;
