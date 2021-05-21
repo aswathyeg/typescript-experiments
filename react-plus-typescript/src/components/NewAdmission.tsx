@@ -2,6 +2,7 @@ import React from 'react';
 import student from './student';
 import {Student} from '../types';
 import { useStateDispatch } from './AppState';
+import NewAdmissionCSS from './NewAdmission.module.css';
 
  interface Props{
      student:Student;
@@ -24,7 +25,8 @@ const onClickAdd=()=>{
 
 
     return(
-        <div>
+        <div className={NewAdmissionCSS.container}>
+            <p>New Admission</p>
              <h2>{student.name}</h2>
         <p>{student.id}</p>
         <p>{student.phone}</p>
