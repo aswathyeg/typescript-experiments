@@ -23,7 +23,7 @@ const App=()=>{ //function component
             </div>
 
          { newAdmissionStudent &&<NewAdmission student={newAdmissionStudent } />}
-    <ul>
+    <ul className={AppCSS.studentList}>
        {students.map((student)=>{
            return<Student key={student.id} student={student}/>;
 
