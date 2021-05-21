@@ -1,12 +1,9 @@
 import React from 'react';
 import StudentCSS from './student.module.css';
 import {useStateDispatch} from './AppState';
+import {Student} from '../types';
 
-interface Student{
-id:number,
-name:string,
-phone:number
-}
+
 interface Props{
   student : Student;
 }
