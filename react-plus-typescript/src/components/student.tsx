@@ -7,7 +7,7 @@ import {Student} from '../types';
 interface Props{
   student : Student;
 }
-const Student:React.FC<Props>=({student})=>{
+const StudentItem:React.FC<Props>=({student})=>{
   const dispatch = useStateDispatch();
   const onClickAdd = ()=>{
     dispatch({
@@ -30,4 +30,4 @@ const Student:React.FC<Props>=({student})=>{
     )
 
     }
-export default Student;
+export default StudentItem;
