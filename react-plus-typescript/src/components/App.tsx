@@ -7,7 +7,7 @@ import Group from './Group';
 import AppStateProvider from './AppState';
 import LogoSVG from '../svg/ocal-logo-purple.svg';
 import NewAdmission from './NewAdmission';
-import student from './student';
+
 const App = () => { //function component
 
     const newAdmissionStudent = students.find((student) => student.newAdmission);
