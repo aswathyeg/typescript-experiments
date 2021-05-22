@@ -1,4 +1,4 @@
 import React from 'react';
-function withAdd(){
+function withAdd(ChildComponent:React.ComponentType){
 
 }
