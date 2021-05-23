@@ -1,7 +1,7 @@
 import React,{createContext, useContext, useEffect}from 'react';
 import { useReducer } from 'react';
 
-interface StudentDetails {
+export interface StudentDetails {
     id: number;
     name: string;
     phone:number;
