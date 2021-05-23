@@ -11,7 +11,8 @@ export function withAdd<OriginalProps>
 (ChildComponent:React.ComponentType<OriginalProps>){
 const AddHOC=(props:OriginalProps)=>{
     const dispatch = useStateDispatch();
-  const onClickAdd = (item:StudentDetails)=>{
+
+  const onClickAdd :AddToGroupProps['addToGroup']= (item)=>{
     dispatch({
       type: 'Add_To_Group',
       payload: {
