@@ -3,7 +3,7 @@ import { StudentDetails, useStateDispatch } from './AppState';
 import student from './student';
 
 export interface AddToGroupProps{
-addToGroup:(item:StudentDetails)=>void;
+addToGroup:(item:Omit<StudentDetails,'quantity'>)=>void;
 
 }
 

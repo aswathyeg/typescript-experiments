@@ -11,6 +11,9 @@ interface Props extends AddToGroupProps{
 const StudentItem:React.FC<Props>=({student,addToGroup})=>{
   
   const onClickAdd = ()=>{
+
+    addToGroup({id:student.id,name:student.name,phone:student.phone})
+
   }
     
     return (
