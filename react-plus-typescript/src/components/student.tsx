@@ -2,12 +2,13 @@ import React from 'react';
 import StudentCSS from './student.module.css';
 import {useStateDispatch} from './AppState';
 import {Student} from '../types';
+import { withAdd } from './Add';
 
 
 interface Props{
   student : Student;
 }
-const StudentItem:React.FC<Props>=({student})=>{
+const StudentItem:React.FC<Props>=({student,addToGroup})=>{
   const dispatch = useStateDispatch();
   const onClickAdd = ()=>{
     dispatch({
@@ -30,4 +31,4 @@ const StudentItem:React.FC<Props>=({student})=>{
     )
 
     }
-export default StudentItem;
+export default withAdd (StudentItem);
