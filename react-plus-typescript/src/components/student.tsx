@@ -2,21 +2,15 @@ import React from 'react';
 import StudentCSS from './student.module.css';
 import {useStateDispatch} from './AppState';
 import {Student} from '../types';
-import { withAdd } from './Add';
+import { AddToGroupProps, withAdd } from './Add';
 
 
-interface Props{
+interface Props extends AddToGroupProps{
   student : Student;
 }
 const StudentItem:React.FC<Props>=({student,addToGroup})=>{
-  const dispatch = useStateDispatch();
+  
   const onClickAdd = ()=>{
-    dispatch({
-      type: 'Add_To_Group',
-      payload: {
-        item: { id: student.id, name: student.name ,phone:student.phone},
-      },
-    });
   }
     
     return (
