@@ -25,3 +25,15 @@ return <ChildComponent {...props as OriginalProps} addToGroup={onClickAdd}/>
 }
 return AddHOC;
 }
+export const withAddProps:React.FC=(children)=>{
+  const dispatch = useStateDispatch();
+
+  const onClickAdd :AddToGroupProps['addToGroup']= (item)=>{
+    dispatch({
+      type: 'Add_To_Group',
+      payload: {
+        item,
+      },
+    });
+
+};
