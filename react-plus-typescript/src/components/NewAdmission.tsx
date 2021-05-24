@@ -1,25 +1,20 @@
 import React from 'react';
-import student from './student';
 import {Student} from '../types';
 import { useStateDispatch } from './AppState';
 import NewAdmissionCSS from './NewAdmission.module.css';
+import { withAdd,AddToGroupProps } from './Add';
 
- interface Props{
+export interface Props extends AddToGroupProps{
+    
      student:Student;
  }
 
 
-const NewAdmission:React.FC<Props>=({student})=>{
-const dispatch=useStateDispatch();
-const onClickAdd=()=>{
-    dispatch({
-        type:'Add_To_Group',
-        
-        payload:{
-            item:{id:student.id,name:student.name,phone:student.phone},
-        },
-    });   
+const NewAdmission:React.FC<Props>=({student,addToGroup})=>{
 
+const onClickAdd=()=>{
+    addToGroup({id:student.id,name:student.name,phone:student.phone})
+   
 };
 
 
@@ -36,4 +31,4 @@ const onClickAdd=()=>{
     )
 
 }
-export default NewAdmission; 
+export default withAdd(NewAdmission); 
