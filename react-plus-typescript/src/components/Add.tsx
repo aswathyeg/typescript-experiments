@@ -7,9 +7,10 @@ addToGroup:(item:Omit<StudentDetails,'quantity'>)=>void;
 
 }
 
-export function withAdd<OriginalProps>
+export function withAdd<OriginalProps extends AddToGroupProps >
 (ChildComponent:React.ComponentType<OriginalProps>){
-const AddHOC=(props:OriginalProps)=>{
+
+const AddHOC=(props:Omit<OriginalProps,keyof AddToGroupProps>)=>{
     const dispatch = useStateDispatch();
 
   const onClickAdd :AddToGroupProps['addToGroup']= (item)=>{
@@ -20,7 +21,7 @@ const AddHOC=(props:OriginalProps)=>{
       },
     });
 };
-return <ChildComponent {...props} addToGroup={onClickAdd}/>
+return <ChildComponent {...props as OriginalProps} addToGroup={onClickAdd}/>
 }
 return AddHOC;
 }
