@@ -1,6 +1,5 @@
 import React from 'react';
 import { StudentDetails, useStateDispatch } from './AppState';
-import student from './student';
 
 export interface AddToGroupProps{
 addToGroup:(item:Omit<StudentDetails,'quantity'>)=>void;
@@ -21,14 +20,21 @@ const AddHOC=(props:Omit<OriginalProps,keyof AddToGroupProps>)=>{
       },
     });
 };
-return <ChildComponent {...props as OriginalProps} addToGroup={onClickAdd}/>
-}
+return (<ChildComponent
+ {...(props as OriginalProps)}
+  addToGroup={onClickAdd}
+  />
+  );
+};
 return AddHOC;
 }
-export const withAddProps:React.FC=(children)=>{
+
+export const WithAddProps:React.FC<{
+  children:(props:AddToGroupProps)=>JSX.Element;
+}>=({children})=>{
   const dispatch = useStateDispatch();
 
-  const onClickAdd :AddToGroupProps['addToGroup']= (item)=>{
+  const addToGroup :AddToGroupProps['addToGroup']= (item)=>{
     dispatch({
       type: 'Add_To_Group',
       payload: {
@@ -36,4 +42,6 @@ export const withAddProps:React.FC=(children)=>{
       },
     });
 
+};
+return children({addToGroup});
 };
