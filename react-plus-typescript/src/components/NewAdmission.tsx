@@ -1,34 +1,43 @@
 import React from 'react';
-import {Student} from '../types';
-import { useStateDispatch } from './AppState';
+import { Student } from '../types';
 import NewAdmissionCSS from './NewAdmission.module.css';
-import { withAdd,AddToGroupProps } from './Add';
+import { WithAddProps } from './Add';
 
-export interface Props extends AddToGroupProps{
-    
-     student:Student;
- }
+interface Props {
 
-
-const NewAdmission:React.FC<Props>=({student,addToGroup})=>{
-
-const onClickAdd=()=>{
-    addToGroup({id:student.id,name:student.name,phone:student.phone})
-   
-};
+    student: Student;
+}
 
 
+const NewAdmission: React.FC<Props> = ({ student }) => {
 
-    return(
+    return (
         <div className={NewAdmissionCSS.container}>
             <p>New Admission</p>
-             <h2>{student.name}</h2>
-        <p>{student.id}</p>
-        <p>{student.phone}</p>
-        <button type="button" onClick={onClickAdd}>Add</button>
-        
-        </div>
-    )
+            <h2>{student.name}</h2>
+            <p>{student.id}</p>
+            <p>{student.phone}</p>
+            <WithAddProps>
+                {({ addToGroup }) => {
+                    return (
+                        <button
+                            type="button"
+                            onClick={() =>
+                                addToGroup({
+                                    id: student.id,
+                                    name: student.name,
+                                    phone: student.phone,
+                                })
+                            }
+                        >
+                            Add
+                        </button>
+                    );
+                }}
+            </WithAddProps>
 
-}
-export default withAdd(NewAdmission); 
+        </div>
+    );
+
+};
+export default NewAdmission;
